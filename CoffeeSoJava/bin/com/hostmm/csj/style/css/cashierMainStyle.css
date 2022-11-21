@@ -1,0 +1,22 @@
+/* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
+.button{
+	-fx-background-color: #fff; /*#704332 */
+}
+
+.atext-field{
+	-fx-background-color: #fff;
+	-fx-background-radius: 10;
+}
+
+.vbItem{
+	-fx-background-color: #ccc;
+}
+
+.print-button{
+	-fx-background-color: #704332;
+	-fx-text-fill: white;
+}
+
+.sidebar-button:hover{
+	-fx-background-color: #CACCCF;
+}

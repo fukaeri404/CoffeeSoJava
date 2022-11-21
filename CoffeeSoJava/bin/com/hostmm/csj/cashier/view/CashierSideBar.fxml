@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox prefHeight="620.0" prefWidth="200.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <JFXButton accessibleText="menu" contentDisplay="TOP" focusTraversable="false" prefHeight="100.0" prefWidth="200.0" styleClass="sidebar-button" text="Menu" textFill="#8b8b8b">
+         <graphic>
+            <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../style/image/menu%20(2).png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <font>
+            <Font name="Arial Bold" size="15.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <JFXButton accessibleText="history" contentDisplay="TOP" focusTraversable="false" layoutX="10.0" layoutY="210.0" prefHeight="100.0" prefWidth="200.0" styleClass="sidebar-button" text="History" textFill="#8b8b8b">
+         <graphic>
+            <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../style/image/history%20(2).png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <font>
+            <Font name="Arial Bold" size="15.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <JFXButton accessibleText="wallet" contentDisplay="TOP" focusTraversable="false" layoutX="10.0" layoutY="310.0" prefHeight="100.0" prefWidth="200.0" styleClass="sidebar-button" text="Wallet" textFill="#8b8b8b">
+         <graphic>
+            <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../style/image/wallet%20(1).png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <font>
+            <Font name="Arial Bold" size="15.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <JFXButton accessibleText="setting" contentDisplay="TOP" focusTraversable="false" layoutX="10.0" layoutY="410.0" prefHeight="100.0" prefWidth="200.0" styleClass="sidebar-button" text="Setting" textFill="#8b8b8b">
+         <graphic>
+            <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../style/image/settings.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <font>
+            <Font name="Arial Bold" size="15.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <JFXButton accessibleText="logout" contentDisplay="TOP" focusTraversable="false" layoutX="10.0" layoutY="310.0" prefHeight="100.0" prefWidth="200.0" styleClass="sidebar-button" text="Logout" textFill="#8b8b8b">
+         <VBox.margin>
+            <Insets top="120.0" />
+         </VBox.margin>
+         <graphic>
+            <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../style/image/exit%20(1).png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <font>
+            <Font name="Arial Bold" size="15.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+   </children>
+</VBox>

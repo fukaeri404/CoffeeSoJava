@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXRadioButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="300.0" prefWidth="400.0" style="-fx-background-radius: 30; -fx-border-color: #999; -fx-border-radius: 10;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.hostmm.csj.item.card.controller.ItemCardController">
+   <children>
+      <ImageView fx:id="imgviewCoffee" accessibleText="imageView" fitHeight="178.0" fitWidth="137.0" layoutX="17.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../style/image/coffee%20(1).png" />
+         </image>
+      </ImageView>
+      <Label fx:id="lblDescription" alignment="TOP_LEFT" layoutX="17.0" layoutY="223.0" prefHeight="62.0" prefWidth="366.0" text="Coffee description" textFill="#767171" wrapText="true">
+         <font>
+            <Font name="Arial Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblCoffeeName" accessibleText="name" alignment="TOP_LEFT" layoutX="176.0" layoutY="22.0" prefHeight="27.0" prefWidth="207.0" text="Coffee Name" wrapText="true">
+         <font>
+            <Font name="Arial Bold" size="20.0" />
+         </font>
+      </Label>
+      <JFXButton layoutX="296.0" layoutY="179.0" onAction="#processAddtoBill" style="-fx-border-color: #ccc; -fx-border-radius: 5; -fx-background-color: #704332; -fx-background-radius: 5;" text="Add to Billing" textFill="WHITE">
+         <font>
+            <Font name="Arial" size="12.0" />
+         </font>
+      </JFXButton>
+      <Label layoutX="197.0" layoutY="69.0" text="Mood">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <JFXRadioButton fx:id="rbHot" layoutX="246.0" layoutY="74.0" text="Hot">
+         <toggleGroup>
+            <ToggleGroup fx:id="mood" />
+         </toggleGroup>
+         <font>
+            <Font name="Arial Bold" size="15.0" />
+         </font>
+      </JFXRadioButton>
+      <JFXRadioButton fx:id="rbCold" layoutX="308.0" layoutY="74.0" text="Cold" toggleGroup="$mood">
+         <font>
+            <Font name="Arial Bold" size="15.0" />
+         </font>
+      </JFXRadioButton>
+      <Label fx:id="lblPrice" layoutX="219.0" layoutY="177.0" prefHeight="27.0" prefWidth="62.0" text="\$3">
+         <font>
+            <Font name="Arial Bold" size="20.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

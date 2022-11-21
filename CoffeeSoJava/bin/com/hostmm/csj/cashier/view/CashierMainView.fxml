@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXDrawer?>
+<?import com.jfoenix.controls.JFXHamburger?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.hostmm.csj.cashier.controller.CashierMainController">
+   <children>
+      <BorderPane prefHeight="700.0" prefWidth="1200.0">
+         <left>
+            <VBox prefHeight="200.0" prefWidth="900.0" spacing="10.0" styleClass="vbItem" BorderPane.alignment="CENTER">
+               <children>
+                  <HBox alignment="CENTER_LEFT" prefHeight="80.0" prefWidth="200.0">
+                     <children>
+                        <AnchorPane>
+                           <HBox.margin>
+                              <Insets left="20.0" />
+                           </HBox.margin>
+                           <children>
+                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="49.0" layoutY="15.0" stroke="BLACK" strokeType="INSIDE" width="65.0" />
+                              <JFXHamburger fx:id="hamburger" alignment="CENTER" fillWidth="false" layoutY="16.0" prefHeight="47.0" prefWidth="65.0" />
+                           </children>
+                        </AnchorPane>
+                        <Label text="Choose Category">
+                           <font>
+                              <Font name="Arial Bold" size="30.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="50.0" />
+                           </HBox.margin>
+                        </Label>
+                        <StackPane>
+                           <children>
+                              <TextField focusTraversable="false" prefHeight="46.0" prefWidth="306.0" promptText="Search Category or menu" styleClass="atext-field" />
+                              <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../style/image/search.png" />
+                                 </image>
+                                 <StackPane.margin>
+                                    <Insets left="250.0" />
+                                 </StackPane.margin>
+                              </ImageView>
+                           </children>
+                           <HBox.margin>
+                              <Insets left="180.0" />
+                           </HBox.margin>
+                        </StackPane>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="100.0" spacing="20.0">
+                     <padding>
+                        <Insets left="20.0" right="10.0" />
+                     </padding>
+                     <children>
+                        <Pane fx:id="paneCoffee" prefHeight="200.0" prefWidth="120.0" style="-fx-background-color: white; -fx-background-radius: 20;">
+                           <children>
+                              <ImageView fitHeight="50.0" fitWidth="46.0" layoutX="37.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../style/image/coffee%20(1).png" />
+                                 </image>
+                              </ImageView>
+                              <Label layoutX="37.0" layoutY="69.0" text="Coffee">
+                                 <font>
+                                    <Font name="Arial Bold" size="15.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </Pane>
+                     </children>
+                  </HBox>
+                  <AnchorPane prefHeight="28.0">
+                     <children>
+                        <Label alignment="BOTTOM_CENTER" layoutX="29.0" layoutY="-2.0" prefHeight="28.0" text="Coffee Menu">
+                           <font>
+                              <Font name="Bodoni MT" size="24.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="BOTTOM_CENTER" layoutX="758.0" layoutY="-1.0" prefHeight="28.0" text="12 Coffees Result" textFill="#202020">
+                           <font>
+                              <Font name="Bodoni MT" size="16.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+                  <ScrollPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: transparent;" VBox.vgrow="ALWAYS">
+                     <content>
+                        <FlowPane fx:id="flowPane" hgap="20.0" prefHeight="448.0" prefWidth="883.0" vgap="20.0">
+                           <padding>
+                              <Insets left="20.0" right="20.0" top="10.0" />
+                           </padding></FlowPane>
+                     </content>
+                  </ScrollPane>
+               </children>
+            </VBox>
+         </left>
+         <center>
+            <VBox prefHeight="200.0" prefWidth="100.0" spacing="20.0" BorderPane.alignment="CENTER">
+               <children>
+                  <AnchorPane prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #fff; -fx-background-radius: 20;">
+                     <children>
+                        <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="31.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true" />
+                        <Label layoutX="90.0" layoutY="16.0" text="I am a cashier" textFill="#946b6b">
+                           <font>
+                              <Font name="Berlin Sans FB" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="90.0" layoutY="32.0" text="Jerry">
+                           <font>
+                              <Font name="Arial Bold" size="16.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <VBox.margin>
+                        <Insets left="10.0" right="10.0" top="10.0" />
+                     </VBox.margin>
+                  </AnchorPane>
+                  <Label prefWidth="300.0" style="-fx-text-fill: #704332;" text="Bills">
+                     <font>
+                        <Font name="Arial Bold" size="18.0" />
+                     </font>
+                     <padding>
+                        <Insets left="20.0" />
+                     </padding>
+                  </Label>
+                  <AnchorPane prefHeight="340.0" prefWidth="300.0">
+                     <children>
+                        <ScrollPane prefHeight="274.0" prefWidth="300.0" style="-fx-background-color: transparent;" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <content>
+                              <FlowPane fx:id="billFlowPane" prefHeight="312.0" prefWidth="290.0" />
+                           </content>
+                        </ScrollPane>
+                     </children>
+                  </AnchorPane>
+                  <HBox>
+                     <children>
+                        <Label prefHeight="18.0" prefWidth="198.0" text="Subtotal">
+                           <padding>
+                              <Insets left="15.0" />
+                           </padding>
+                           <font>
+                              <Font name="Arial Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER_RIGHT" layoutX="10.0" layoutY="10.0" prefHeight="18.0" prefWidth="198.0" text="\$1231">
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                           <padding>
+                              <Insets right="15.0" />
+                           </padding>
+                           <font>
+                              <Font name="Arial Bold" size="12.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox layoutX="10.0" layoutY="392.0">
+                     <children>
+                        <Label prefHeight="18.0" prefWidth="198.0" text="Tax (10%)">
+                           <padding>
+                              <Insets left="15.0" />
+                           </padding>
+                           <font>
+                              <Font name="Arial Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER_RIGHT" layoutX="10.0" layoutY="10.0" prefHeight="18.0" prefWidth="198.0" text="\$1231">
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                           <padding>
+                              <Insets right="15.0" />
+                           </padding>
+                           <font>
+                              <Font name="Arial Bold" size="12.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <Label prefWidth="300.0" text="- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -">
+                     <padding>
+                        <Insets left="20.0" right="20.0" />
+                     </padding>
+                  </Label>
+                  <HBox layoutX="10.0" layoutY="430.0">
+                     <children>
+                        <Label prefHeight="18.0" prefWidth="198.0" text="Total">
+                           <padding>
+                              <Insets left="15.0" />
+                           </padding>
+                           <font>
+                              <Font name="Arial Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER_RIGHT" layoutX="10.0" layoutY="10.0" prefHeight="18.0" prefWidth="198.0" text="\$1231">
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                           <padding>
+                              <Insets right="15.0" />
+                           </padding>
+                           <font>
+                              <Font name="Arial Bold" size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <JFXButton focusTraversable="false" prefHeight="60.0" prefWidth="260.0" styleClass="print-button" text="Print Bills">
+                     <VBox.margin>
+                        <Insets bottom="20.0" left="20.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="Arial Bold" size="15.0" />
+                     </font>
+                  </JFXButton>
+               </children>
+            </VBox>
+         </center>
+      </BorderPane>
+      <JFXDrawer fx:id="drawer" defaultDrawerSize="200.0" direction="RIGHT" layoutX="-230.0" layoutY="80.0" prefHeight="620.0" visible="false" />
+   </children>
+</AnchorPane>

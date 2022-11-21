@@ -1,0 +1,11 @@
+/* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
+.admMainAccButton{
+	-fx-background-color: white; /*#704332 */
+	-fx-font-family: Arial;
+	-fx-font-weight: bold;
+	-fx-font-size: 15.0;
+	-fx-background-radius : 10.0;
+}
+.admMainAccount{
+	-fx-background-color: #ddd;
+}
