@@ -19,22 +19,20 @@ public class OrderedItem {
 	public static ObservableList<OrderedItem> getListInstance() {
 		return LIST_InSTANCE;
 	}
-
+	
 	private SimpleStringProperty name;
-	private SimpleStringProperty mood;
 	private SimpleIntegerProperty quantity;
-	private SimpleDoubleProperty totalAmount;
+	private SimpleDoubleProperty totalPrice;
 
 	public OrderedItem() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public OrderedItem(String name, String mood, int quantity, double totalAmount) {
+	public OrderedItem(String name, int quantity, double totalPrice) {
 		super();
 		this.name = new SimpleStringProperty(name);
-		this.mood = new SimpleStringProperty(mood);
 		this.quantity = new SimpleIntegerProperty(quantity);
-		this.totalAmount = new SimpleDoubleProperty(totalAmount);
+		this.totalPrice = new SimpleDoubleProperty(totalPrice);
 	}
 
 	public String getName() {
@@ -45,14 +43,6 @@ public class OrderedItem {
 		this.name = new SimpleStringProperty(name);
 	}
 
-	public String getMood() {
-		return mood.get();
-	}
-
-	public void setMood(String mood) {
-		this.mood = new SimpleStringProperty(mood);
-	}
-
 	public int getQuantity() {
 		return quantity.get();
 	}
@@ -61,12 +51,12 @@ public class OrderedItem {
 		this.quantity = new SimpleIntegerProperty(quantity);
 	}
 
-	public double getTotalAmount() {
-		return totalAmount.get();
+	public double getTotalPrice() {
+		return totalPrice.get();
 	}
 
-	public void setTotalAmount(double totalAmount) {
-		this.totalAmount = new SimpleDoubleProperty(totalAmount);
+	public void setTotalPrice(double totalPrice) {
+		this.totalPrice = new SimpleDoubleProperty(totalPrice);
 	}
 
 }

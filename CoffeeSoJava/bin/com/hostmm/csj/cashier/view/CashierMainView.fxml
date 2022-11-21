@@ -46,7 +46,7 @@
                         </Label>
                         <StackPane>
                            <children>
-                              <TextField focusTraversable="false" prefHeight="46.0" prefWidth="306.0" promptText="Search Category or menu" styleClass="atext-field" />
+                              <TextField fx:id="tfSearch" focusTraversable="false" prefHeight="46.0" prefWidth="306.0" promptText="Search Category or menu" styleClass="atext-field" />
                               <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../../style/image/search.png" />
@@ -90,7 +90,7 @@
                               <Font name="Bodoni MT" size="24.0" />
                            </font>
                         </Label>
-                        <Label alignment="BOTTOM_CENTER" layoutX="758.0" layoutY="-1.0" prefHeight="28.0" text="12 Coffees Result" textFill="#202020">
+                        <Label fx:id="lblResult" alignment="BOTTOM_CENTER" layoutX="758.0" layoutY="-1.0" prefHeight="28.0" text="12 Coffees Result" textFill="#202020">
                            <font>
                               <Font name="Bodoni MT" size="16.0" />
                            </font>
@@ -102,7 +102,8 @@
                         <FlowPane fx:id="flowPane" hgap="20.0" prefHeight="448.0" prefWidth="883.0" vgap="20.0">
                            <padding>
                               <Insets left="20.0" right="20.0" top="10.0" />
-                           </padding></FlowPane>
+                           </padding>
+                        </FlowPane>
                      </content>
                   </ScrollPane>
                </children>
@@ -126,7 +127,7 @@
                         </Label>
                      </children>
                      <VBox.margin>
-                        <Insets left="10.0" right="10.0" top="10.0" />
+                        <Insets left="10.0" right="18.0" top="10.0" />
                      </VBox.margin>
                   </AnchorPane>
                   <Label prefWidth="300.0" style="-fx-text-fill: #704332;" text="Bills">
@@ -139,24 +140,20 @@
                   </Label>
                   <AnchorPane prefHeight="340.0" prefWidth="300.0">
                      <children>
-                        <ScrollPane prefHeight="274.0" prefWidth="300.0" style="-fx-background-color: transparent;" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
-                           <content>
-                              <FlowPane fx:id="billFlowPane" prefHeight="312.0" prefWidth="290.0" />
-                           </content>
-                        </ScrollPane>
+                        <ScrollPane fx:id="scrollPane" prefHeight="320.0" prefWidth="309.0" style="-fx-background-color: transparent;" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0" />
                      </children>
                   </AnchorPane>
                   <HBox>
                      <children>
-                        <Label prefHeight="18.0" prefWidth="198.0" text="Subtotal">
+                        <Label prefHeight="18.0" prefWidth="198.0" text="Subtotal" textFill="#716a6a">
                            <padding>
                               <Insets left="15.0" />
                            </padding>
                            <font>
-                              <Font name="Arial Bold" size="12.0" />
+                              <Font name="Arial Bold" size="14.0" />
                            </font>
                         </Label>
-                        <Label alignment="CENTER_RIGHT" layoutX="10.0" layoutY="10.0" prefHeight="18.0" prefWidth="198.0" text="\$1231">
+                        <Label fx:id="lblSubTotal" alignment="CENTER_RIGHT" layoutX="10.0" layoutY="10.0" prefHeight="18.0" prefWidth="198.0" text="\$ 0" textFill="#716a6a">
                            <HBox.margin>
                               <Insets />
                            </HBox.margin>
@@ -164,22 +161,22 @@
                               <Insets right="15.0" />
                            </padding>
                            <font>
-                              <Font name="Arial Bold" size="12.0" />
+                              <Font name="Arial Bold" size="14.0" />
                            </font>
                         </Label>
                      </children>
                   </HBox>
                   <HBox layoutX="10.0" layoutY="392.0">
                      <children>
-                        <Label prefHeight="18.0" prefWidth="198.0" text="Tax (10%)">
+                        <Label prefHeight="18.0" prefWidth="198.0" text="Tax (10%)" textFill="#716a6a">
                            <padding>
                               <Insets left="15.0" />
                            </padding>
                            <font>
-                              <Font name="Arial Bold" size="12.0" />
+                              <Font name="Arial Bold" size="14.0" />
                            </font>
                         </Label>
-                        <Label alignment="CENTER_RIGHT" layoutX="10.0" layoutY="10.0" prefHeight="18.0" prefWidth="198.0" text="\$1231">
+                        <Label fx:id="lblTax" alignment="CENTER_RIGHT" layoutX="10.0" layoutY="10.0" prefHeight="18.0" prefWidth="198.0" text="\$ 0" textFill="#716a6a">
                            <HBox.margin>
                               <Insets />
                            </HBox.margin>
@@ -187,7 +184,7 @@
                               <Insets right="15.0" />
                            </padding>
                            <font>
-                              <Font name="Arial Bold" size="12.0" />
+                              <Font name="Arial Bold" size="14.0" />
                            </font>
                         </Label>
                      </children>
@@ -204,10 +201,10 @@
                               <Insets left="15.0" />
                            </padding>
                            <font>
-                              <Font name="Arial Bold" size="18.0" />
+                              <Font name="Arial Bold" size="20.0" />
                            </font>
                         </Label>
-                        <Label alignment="CENTER_RIGHT" layoutX="10.0" layoutY="10.0" prefHeight="18.0" prefWidth="198.0" text="\$1231">
+                        <Label fx:id="lblTotal" alignment="CENTER_RIGHT" layoutX="10.0" layoutY="10.0" prefHeight="18.0" prefWidth="198.0" text="\$ 0">
                            <HBox.margin>
                               <Insets />
                            </HBox.margin>
@@ -220,7 +217,7 @@
                         </Label>
                      </children>
                   </HBox>
-                  <JFXButton focusTraversable="false" prefHeight="60.0" prefWidth="260.0" styleClass="print-button" text="Print Bills">
+                  <JFXButton focusTraversable="false" onAction="#processPrint" prefHeight="60.0" prefWidth="260.0" styleClass="print-button" text="Print Bills">
                      <VBox.margin>
                         <Insets bottom="20.0" left="20.0" />
                      </VBox.margin>

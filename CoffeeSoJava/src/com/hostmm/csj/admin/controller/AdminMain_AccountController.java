@@ -208,10 +208,15 @@ public class AdminMain_AccountController implements Initializable {
 			@Override
 			public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
 				if (!cobRole.getValue().isBlank()) {
-					if (cobStatus.getValue() != null)
-						showTable("select * from staff where role = '" + newValue + "' && status = '"
-								+ cobStatus.getValue() + "' && active = true;");
-					else
+					if (cobStatus.getValue() != null) {
+						if (cobStatus.getValue().isBlank()) {
+							showTable("select * from staff where role = '" + newValue
+									+ "' && status = 'working'|'resign' && active = true;");
+						} else {
+							showTable("select * from staff where role = '" + newValue + "' && status = '"
+									+ cobStatus.getValue() + "' && active = true;");
+						}
+					} else
 						showTable("select * from staff where role = '" + newValue
 								+ "' && status = 'working'|'resign' && active = true;");
 				}
@@ -222,10 +227,15 @@ public class AdminMain_AccountController implements Initializable {
 			@Override
 			public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
 				if (!cobStatus.getValue().isBlank()) {
-					if (cobRole.getValue() != null)
-						showTable("select * from staff where role = '" + cobRole.getValue() + "' && status = '"
-								+ newValue + "' && active = true;");
-					else
+					if (cobRole.getValue() != null) {
+						if (cobRole.getValue().isBlank()) {
+							showTable("select * from staff where role = 'admin'|'cashier' && status = '" + newValue
+									+ "' && active = true;");
+						} else {
+							showTable("select * from staff where role = '" + cobRole.getValue() + "' && status = '"
+									+ newValue + "' && active = true;");
+						}
+					} else
 						showTable("select * from staff where role = 'admin'|'cashier' && status = '" + newValue
 								+ "' && active = true;");
 
