@@ -12,14 +12,19 @@ public class Bill {
 	private SimpleStringProperty name;
 	private SimpleIntegerProperty quantity;
 	private SimpleDoubleProperty totalPrice;
-	private SimpleStringProperty saleDate;
 
-	public Bill(String name, int quantity, double totalPrice, LocalDate saleDate) {
+	private SimpleStringProperty saleMonth;
+	private SimpleStringProperty saleDate;
+	private SimpleStringProperty saleYear;
+
+	public Bill(String name, int quantity, double totalPrice, String saleMonth, String saleDate, String saleYear) {
 		super();
 		this.name = new SimpleStringProperty(name);
 		this.quantity = new SimpleIntegerProperty(quantity);
 		this.totalPrice = new SimpleDoubleProperty(totalPrice);
-		this.saleDate = new SimpleStringProperty(saleDate.toString());
+		this.saleMonth = new SimpleStringProperty(saleMonth);
+		this.saleDate = new SimpleStringProperty(saleDate);
+		this.saleYear = new SimpleStringProperty(saleYear);
 	}
 
 	public int getId() {
@@ -54,13 +59,28 @@ public class Bill {
 		this.totalPrice = new SimpleDoubleProperty(totalPrice);
 	}
 
-	public LocalDate getSaleDate() {
-		LocalDate date = LocalDate.parse(this.saleDate.get());
-		return date;
+	public String getSaleDate() {
+		return saleDate.get();
 	}
 
-	public void setSaleDate(LocalDate saleDate) {
-		this.saleDate = new SimpleStringProperty(saleDate.toString());
+	public void setSaleDate(String saleDate) {
+		this.saleDate = new SimpleStringProperty(saleDate);
+	}
+
+	public String getSaleMonth() {
+		return saleMonth.get();
+	}
+
+	public void setSaleMonth(String saleMonth) {
+		this.saleMonth = new SimpleStringProperty(saleMonth);
+	}
+
+	public String getSaleYear() {
+		return saleYear.get();
+	}
+
+	public void setSaleYear(String saleYear) {
+		this.saleYear = new SimpleStringProperty(saleYear);
 	}
 
 }

@@ -17,4 +17,6 @@ module CoffeeSoJava {
 	opens com.hostmm.csj.item.controller to javafx.fxml;
 	opens com.hostmm.csj.item.model to javafx.base;
 	opens com.hostmm.csj.item.card.controller to javafx.fxml;
+	opens com.hostmm.csj.bill.controller to javafx.fxml;
+	opens com.hostmm.csj.bill.model to javafx.base;
 }

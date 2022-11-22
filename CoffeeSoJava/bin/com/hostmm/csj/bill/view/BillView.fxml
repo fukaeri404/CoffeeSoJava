@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox prefHeight="500.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.hostmm.csj.bill.controller.BillController">
+   <children>
+      <HBox alignment="CENTER_LEFT" prefHeight="58.0" prefWidth="600.0">
+         <children>
+            <Label text="Total Sale :">
+               <font>
+                  <Font name="Arial Bold" size="15.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+            </Label>
+            <Label fx:id="lblTotalSale" layoutX="10.0" layoutY="31.0" prefHeight="18.0" prefWidth="141.0">
+               <font>
+                  <Font name="Arial" size="14.0" />
+               </font>
+               <padding>
+                  <Insets left="5.0" />
+               </padding>
+            </Label>
+            <Label text="Sale Date" textFill="#817e7e">
+               <font>
+                  <Font name="Arial Bold" size="17.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="80.0" />
+               </HBox.margin>
+            </Label>
+            <DatePicker fx:id="dpSaleDate" focusTraversable="false" promptText="Choose Sale Date">
+               <HBox.margin>
+                  <Insets left="10.0" right="20.0" />
+               </HBox.margin>
+            </DatePicker>
+         </children>
+      </HBox>
+      <TableView fx:id="tvBill" focusTraversable="false" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+        <columns>
+          <TableColumn fx:id="name" editable="false" prefWidth="75.0" text="name" />
+            <TableColumn fx:id="quantity" editable="false" prefWidth="75.0" text="quantity" />
+            <TableColumn fx:id="totalPrice" editable="false" prefWidth="75.0" text="totalPrice" />
+            <TableColumn fx:id="saleMonth" editable="false" prefWidth="75.0" text="saleMonth" />
+            <TableColumn fx:id="saleDate" editable="false" prefWidth="75.0" text="saleDate" />
+            <TableColumn fx:id="saleYear" editable="false" prefWidth="75.0" text="saleYear" />
+        </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
+      </TableView>
+   </children>
+</VBox>

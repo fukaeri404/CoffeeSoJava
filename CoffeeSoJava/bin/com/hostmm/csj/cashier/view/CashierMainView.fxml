@@ -32,7 +32,7 @@
                               <Insets left="20.0" />
                            </HBox.margin>
                            <children>
-                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="49.0" layoutY="15.0" stroke="BLACK" strokeType="INSIDE" width="65.0" />
+                              <Rectangle fx:id="rectangle" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="49.0" layoutY="15.0" stroke="BLACK" strokeType="INSIDE" width="65.0" />
                               <JFXHamburger fx:id="hamburger" alignment="CENTER" fillWidth="false" layoutY="16.0" prefHeight="47.0" prefWidth="65.0" />
                            </children>
                         </AnchorPane>
@@ -229,6 +229,6 @@
             </VBox>
          </center>
       </BorderPane>
-      <JFXDrawer fx:id="drawer" defaultDrawerSize="200.0" direction="RIGHT" layoutX="-230.0" layoutY="80.0" prefHeight="620.0" visible="false" />
+      <JFXDrawer fx:id="drawer" defaultDrawerSize="200.0" direction="RIGHT" layoutX="-230.0" layoutY="80.0" prefHeight="620.0" />
    </children>
 </AnchorPane>

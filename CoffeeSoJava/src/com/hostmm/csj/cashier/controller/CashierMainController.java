@@ -17,6 +17,7 @@ import com.jfoenix.controls.JFXDrawer;
 import com.jfoenix.controls.JFXHamburger;
 import com.jfoenix.transitions.hamburger.HamburgerBackArrowBasicTransition;
 
+import javafx.animation.RotateTransition;
 import javafx.beans.InvalidationListener;
 import javafx.beans.Observable;
 import javafx.beans.binding.DoubleBinding;
@@ -40,6 +41,8 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import javafx.scene.shape.Rectangle;
+import javafx.scene.transform.Rotate;
 import javafx.util.Duration;
 
 public class CashierMainController implements Initializable {
@@ -74,17 +77,23 @@ public class CashierMainController implements Initializable {
 	@FXML
 	private TextField tfSearch;
 
+	@FXML
+	private Rectangle rectangle;
+
 	private ItemDAO itemDAO = new ItemDAO();
 	private BillDAO billDAO = new BillDAO();
 	private Item item = Item.getItemInstance();
 	private static FlowPane billFlowPane = new FlowPane();
 	private MyNotification myNoti = new MyNotification();
+	RotateTransition rotate = new RotateTransition();
 
 	@FXML
 	void processPrint(ActionEvent event) {
 		int rowEffected = 0;
 		for (OrderedItem oi : OrderedItem.getListInstance()) {
-			Bill bill = new Bill(oi.getName(), oi.getQuantity(), oi.getTotalPrice(), LocalDate.now());
+			Bill bill = new Bill(oi.getName(), oi.getQuantity(), oi.getTotalPrice(),
+					String.valueOf(LocalDate.now().getMonthValue()), String.valueOf(LocalDate.now().getDayOfMonth()),
+					String.valueOf(LocalDate.now().getYear()));
 			rowEffected = billDAO.createBill(bill);
 		}
 		if (rowEffected > 0) {
@@ -97,6 +106,8 @@ public class CashierMainController implements Initializable {
 			MyNotificationType notitype = MyNotificationType.SUCCESS;
 			Duration dismissTime = Duration.seconds(3);
 			myNoti.getNotification("Printed", message, notitype, dismissTime);
+
+			ItemCardController.setSubTotal(0);
 		}
 	}
 
@@ -116,17 +127,17 @@ public class CashierMainController implements Initializable {
 			else
 				addItemCard("select * from coffee where name = '" + tfSearch.getText() + "';");
 		});
-		
+
 		lblSubTotal.textProperty().bind(ItemCardController.getSubTotal());
-		
+
 		lblSubTotal.textProperty().addListener(new ChangeListener<String>() {
 			@Override
 			public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
 				String[] split = lblSubTotal.getText().split(" ");
 				double subTotal = Double.parseDouble(split[1]);
-				double tax = subTotal/10;
-				lblTax.setText("$ "+String.valueOf(tax));
-				lblTotal.setText("$ "+String.valueOf(subTotal+tax));
+				double tax = subTotal / 10;
+				lblTax.setText("$ " + String.valueOf(tax));
+				lblTotal.setText("$ " + String.valueOf(subTotal + tax));
 			}
 		});
 
@@ -160,16 +171,24 @@ public class CashierMainController implements Initializable {
 		try {
 			VBox sidepane = FXMLLoader.load(getClass().getResource("/com/hostmm/csj/cashier/view/CashierSideBar.fxml"));
 			drawer.setSidePane(sidepane);
-
 			HamburgerBackArrowBasicTransition task = new HamburgerBackArrowBasicTransition(hamburger);
 			task.setRate(-1);
 			hamburger.addEventHandler(MouseEvent.MOUSE_CLICKED, (e) -> {
 				task.setRate(task.getRate() * -1);
 				task.play();
-				if (drawer.isShown())
+				rotate.setAxis(Rotate.Z_AXIS);
+				rotate.setDuration(Duration.millis(1000));
+				rotate.setNode(rectangle);
+				rotate.setAutoReverse(true);
+				if (drawer.isShown()) {
 					drawer.close();
-				else
+					rotate.setByAngle(-180);
+					rotate.play();
+				} else {
+					rotate.setByAngle(180);
+					rotate.play();
 					drawer.open();
+				}
 			});
 
 		} catch (IOException e) {

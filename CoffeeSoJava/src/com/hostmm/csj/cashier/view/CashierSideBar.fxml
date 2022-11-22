@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="620.0" prefWidth="200.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+<VBox prefHeight="620.0" prefWidth="200.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.hostmm.csj.cashier.controller.CashierSideBarController">
    <children>
       <JFXButton accessibleText="menu" contentDisplay="TOP" focusTraversable="false" prefHeight="100.0" prefWidth="200.0" styleClass="sidebar-button" text="Menu" textFill="#8b8b8b">
          <graphic>
@@ -25,7 +25,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </JFXButton>
-      <JFXButton accessibleText="history" contentDisplay="TOP" focusTraversable="false" layoutX="10.0" layoutY="210.0" prefHeight="100.0" prefWidth="200.0" styleClass="sidebar-button" text="History" textFill="#8b8b8b">
+      <JFXButton accessibleText="history" contentDisplay="TOP" focusTraversable="false" layoutX="10.0" layoutY="210.0" onAction="#processHistory" prefHeight="100.0" prefWidth="200.0" styleClass="sidebar-button" text="History" textFill="#8b8b8b">
          <graphic>
             <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -70,7 +70,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </JFXButton>
-      <JFXButton accessibleText="logout" contentDisplay="TOP" focusTraversable="false" layoutX="10.0" layoutY="310.0" prefHeight="100.0" prefWidth="200.0" styleClass="sidebar-button" text="Logout" textFill="#8b8b8b">
+      <JFXButton accessibleText="logout" contentDisplay="TOP" focusTraversable="false" layoutX="10.0" layoutY="310.0" onAction="#processLogout" prefHeight="100.0" prefWidth="200.0" styleClass="sidebar-button" text="Logout" textFill="#8b8b8b">
          <VBox.margin>
             <Insets top="120.0" />
          </VBox.margin>

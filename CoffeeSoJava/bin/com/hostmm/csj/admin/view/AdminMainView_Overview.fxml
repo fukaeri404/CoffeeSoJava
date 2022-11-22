@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox prefHeight="700.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.hostmm.csj.admin.controller.AdminMain_OverviewController">
+   <children>
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="20.0">
+         <children>
+            <Label text="Choose date :">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <DatePicker fx:id="dpDate" />
+         </children>
+      </HBox>
+      <AnchorPane VBox.vgrow="ALWAYS">
+         <children>
+            <PieChart fx:id="pieDate" layoutX="37.0" layoutY="61.0" prefHeight="242.0" prefWidth="338.0" />
+            <Label layoutX="37.0" layoutY="28.0" text="Selected Date Sale">
+               <font>
+                  <Font name="Arial Bold" size="15.0" />
+               </font></Label>
+            <PieChart fx:id="pieMonth" layoutX="408.0" layoutY="61.0" prefHeight="250.0" prefWidth="367.0" />
+            <Label layoutX="408.0" layoutY="28.0" text="Selected Date's Month Sale">
+               <font>
+                  <Font name="Arial Bold" size="15.0" />
+               </font></Label>
+            <PieChart fx:id="pieYear" layoutX="240.0" layoutY="334.0" prefHeight="250.0" prefWidth="501.0" />
+            <Label layoutX="37.0" layoutY="450.0" text="Selected Date's Year Sale">
+               <font>
+                  <Font name="Arial Bold" size="15.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </children>
+</VBox>
