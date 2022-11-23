@@ -1,16 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXToggleButton?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="620.0" prefWidth="200.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.hostmm.csj.cashier.controller.CashierSideBarController">
+<VBox prefHeight="620.0" prefWidth="200.0" styleClass="sidebar" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.hostmm.csj.cashier.controller.CashierSideBarController">
    <children>
-      <JFXButton accessibleText="menu" contentDisplay="TOP" focusTraversable="false" prefHeight="100.0" prefWidth="200.0" styleClass="sidebar-button" text="Menu" textFill="#8b8b8b">
+      <JFXButton accessibleText="menu" contentDisplay="TOP" focusTraversable="false" prefHeight="100.0" prefWidth="200.0" styleClass="sidebar-button" text="Menu" textFill="#8e8b85">
          <graphic>
             <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -25,7 +28,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </JFXButton>
-      <JFXButton accessibleText="history" contentDisplay="TOP" focusTraversable="false" layoutX="10.0" layoutY="210.0" onAction="#processHistory" prefHeight="100.0" prefWidth="200.0" styleClass="sidebar-button" text="History" textFill="#8b8b8b">
+      <JFXButton accessibleText="history" contentDisplay="TOP" focusTraversable="false" layoutX="10.0" layoutY="210.0" onAction="#processHistory" prefHeight="100.0" prefWidth="200.0" styleClass="sidebar-button" text="History" textFill="#8e8b85">
          <graphic>
             <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -40,7 +43,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </JFXButton>
-      <JFXButton accessibleText="wallet" contentDisplay="TOP" focusTraversable="false" layoutX="10.0" layoutY="310.0" prefHeight="100.0" prefWidth="200.0" styleClass="sidebar-button" text="Wallet" textFill="#8b8b8b">
+      <JFXButton accessibleText="wallet" contentDisplay="TOP" focusTraversable="false" layoutX="10.0" layoutY="310.0" prefHeight="100.0" prefWidth="200.0" styleClass="sidebar-button" text="Wallet" textFill="#8e8b85">
          <graphic>
             <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -55,22 +58,21 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </JFXButton>
-      <JFXButton accessibleText="setting" contentDisplay="TOP" focusTraversable="false" layoutX="10.0" layoutY="410.0" prefHeight="100.0" prefWidth="200.0" styleClass="sidebar-button" text="Setting" textFill="#8b8b8b">
-         <graphic>
-            <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../style/image/settings.png" />
-               </image>
-            </ImageView>
-         </graphic>
-         <font>
-            <Font name="Arial Bold" size="15.0" />
-         </font>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </JFXButton>
-      <JFXButton accessibleText="logout" contentDisplay="TOP" focusTraversable="false" layoutX="10.0" layoutY="310.0" onAction="#processLogout" prefHeight="100.0" prefWidth="200.0" styleClass="sidebar-button" text="Logout" textFill="#8b8b8b">
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <Label text="Normal" textFill="#8e8b85">
+               <font>
+                  <Font name="Arial Bold" size="15.0" />
+               </font>
+            </Label>
+            <JFXToggleButton fx:id="jtTheme" prefHeight="60.0" prefWidth="122.0" text="Coffee" textFill="#8e8b85">
+               <font>
+                  <Font name="Arial Bold" size="15.0" />
+               </font>
+            </JFXToggleButton>
+         </children>
+      </HBox>
+      <JFXButton accessibleText="logout" contentDisplay="TOP" focusTraversable="false" layoutX="10.0" layoutY="310.0" onAction="#processLogout" prefHeight="100.0" prefWidth="200.0" styleClass="sidebar-button" text="Logout" textFill="#8e8b85">
          <VBox.margin>
             <Insets top="120.0" />
          </VBox.margin>

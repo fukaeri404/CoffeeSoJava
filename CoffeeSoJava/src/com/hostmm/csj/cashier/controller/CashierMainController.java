@@ -1,8 +1,10 @@
 package com.hostmm.csj.cashier.controller;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.ResourceBundle;
 
 import com.hostmm.csj.bill.model.Bill;
@@ -11,6 +13,7 @@ import com.hostmm.csj.item.card.controller.ItemCardController;
 import com.hostmm.csj.item.model.Item;
 import com.hostmm.csj.item.model.ItemDAO;
 import com.hostmm.csj.item.model.OrderedItem;
+import com.hostmm.csj.login.model.LoginDAO;
 import com.hostmm.csj.utility.notification.MyNotification;
 import com.hostmm.csj.utility.notification.MyNotificationType;
 import com.jfoenix.controls.JFXDrawer;
@@ -36,6 +39,8 @@ import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
@@ -75,7 +80,13 @@ public class CashierMainController implements Initializable {
 	private Label lblTotal;
 
 	@FXML
+	private ImageView imgviewCashier;
+
+	@FXML
 	private TextField tfSearch;
+
+	@FXML
+	private Label lblUsername;
 
 	@FXML
 	private Rectangle rectangle;
@@ -93,14 +104,14 @@ public class CashierMainController implements Initializable {
 		for (OrderedItem oi : OrderedItem.getListInstance()) {
 			Bill bill = new Bill(oi.getName(), oi.getQuantity(), oi.getTotalPrice(),
 					String.valueOf(LocalDate.now().getMonthValue()), String.valueOf(LocalDate.now().getDayOfMonth()),
-					String.valueOf(LocalDate.now().getYear()));
+					String.valueOf(LocalDate.now().getYear()), LocalTime.now(), LoginDAO.getLoggedUsername(), "created");
 			rowEffected = billDAO.createBill(bill);
 		}
 		if (rowEffected > 0) {
 			billFlowPane.getChildren().clear();
 			OrderedItem.getListInstance().clear();
 
-			addItemCard("select * from coffee");
+			addItemCard("select * from coffee where available = 'available';");
 
 			String message = "successfully printed bill";
 			MyNotificationType notitype = MyNotificationType.SUCCESS;
@@ -113,19 +124,27 @@ public class CashierMainController implements Initializable {
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+		lblUsername.setText(LoginDAO.getLoggedUsername());
+		File imageFile = new File("src/com/hostmm/csj/staff/profile/" + LoginDAO.getLoggedUserImage());
+		if (imageFile != null) {
+			Image imageProfile = new Image(imageFile.getAbsolutePath());
+			imgviewCashier.setImage(imageProfile);
+		}
 		billFlowPane.setPrefWidth(270);
+		billFlowPane.setStyle("-fx-background-color : transparent");
 		scrollPane.setContent(billFlowPane);
 		drawer.open();
 		setSidePane();
-		addItemCard("select * from coffee");
+		addItemCard("select * from coffee where available = 'available';");
 		paneCoffee.setOnMouseClicked((e) -> {
 
 		});
 		tfSearch.setOnKeyReleased((e) -> {
 			if (tfSearch.getText().isBlank())
-				addItemCard("select * from coffee");
+				addItemCard("select * from coffee where available = 'available';");
 			else
-				addItemCard("select * from coffee where name = '" + tfSearch.getText() + "';");
+				addItemCard(
+						"select * from coffee where name = '" + tfSearch.getText() + "' && available = 'available';");
 		});
 
 		lblSubTotal.textProperty().bind(ItemCardController.getSubTotal());

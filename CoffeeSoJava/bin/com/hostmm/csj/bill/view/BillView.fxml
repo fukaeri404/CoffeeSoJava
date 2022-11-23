@@ -52,6 +52,7 @@
             <TableColumn fx:id="saleMonth" editable="false" prefWidth="75.0" text="saleMonth" />
             <TableColumn fx:id="saleDate" editable="false" prefWidth="75.0" text="saleDate" />
             <TableColumn fx:id="saleYear" editable="false" prefWidth="75.0" text="saleYear" />
+            <TableColumn fx:id="saleTime" editable="false" prefWidth="75.0" text="saleTime" />
         </columns>
          <columnResizePolicy>
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />

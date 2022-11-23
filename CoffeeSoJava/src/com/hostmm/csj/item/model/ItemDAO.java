@@ -6,8 +6,10 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.time.LocalDate;
 
 import com.hostmm.csj.database.DBconnection;
+import com.hostmm.csj.login.model.LoginDAO;
 import com.hostmm.csj.staff.model.Staff;
 
 import javafx.collections.FXCollections;
@@ -82,7 +84,9 @@ public class ItemDAO {
 			rs = stmt.executeQuery(sql);
 
 			while (rs.next()) {
-				itemList.add(new Item(rs.getInt("id"), rs.getString("name"), rs.getDouble("price"), rs.getString("mood"), rs.getString("available"), rs.getString("description"), rs.getString("imageName"), rs.getString("status")));
+				itemList.add(new Item(rs.getInt("id"), rs.getString("name"), rs.getDouble("price"),
+						rs.getString("mood"), rs.getString("available"), rs.getString("description"),
+						rs.getString("imageName"), rs.getString("status")));
 			}
 
 		} catch (SQLException e) {
@@ -91,6 +95,21 @@ public class ItemDAO {
 			close();
 		}
 		return itemList;
+
+	}
+
+	public int deleteItemByName(Item item) {
+		int rowEffected = 0;
+		connection = DBconnection.getDBconnection();
+		try {
+			pStmt = connection.prepareStatement("DELETE FROM `csj`.`coffee` WHERE (`id` = ?);");
+			pStmt.setInt(1, item.getId());
+			rowEffected = pStmt.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return rowEffected;
 
 	}
 

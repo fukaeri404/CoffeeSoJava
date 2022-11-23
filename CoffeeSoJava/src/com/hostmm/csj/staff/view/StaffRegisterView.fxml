@@ -20,8 +20,7 @@
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="600.0" prefWidth="700.0" style="-fx-background-color: #704332;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/18" fx:controller="com.hostmm.csj.staff.controller.StaffRegisterController">
+<AnchorPane prefHeight="600.0" prefWidth="700.0" style="-fx-background-color: #704332;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.hostmm.csj.staff.controller.StaffRegisterController">
    <children>
       <ImageView fx:id="imgviewProfile" fitHeight="157.0" fitWidth="190.0" layoutX="33.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -35,6 +34,7 @@
         </columnConstraints>
         <rowConstraints>
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -62,7 +62,7 @@
                   <Insets right="20.0" />
                </GridPane.margin>
             </TextField>
-            <Label alignment="CENTER_RIGHT" layoutX="10.0" layoutY="76.0" prefWidth="240.0" text="Password :" textFill="WHITE" GridPane.rowIndex="1">
+            <Label alignment="CENTER_RIGHT" layoutX="10.0" layoutY="76.0" prefWidth="240.0" text="Password :" textFill="WHITE" GridPane.rowIndex="2">
                <font>
                   <Font name="Arial Bold" size="17.0" />
                </font>
@@ -70,12 +70,12 @@
                   <Insets right="10.0" />
                </padding>
             </Label>
-            <TextField fx:id="tfPassword" layoutX="148.0" layoutY="72.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <TextField fx:id="tfPassword" layoutX="148.0" layoutY="72.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <GridPane.margin>
                   <Insets right="20.0" />
                </GridPane.margin>
             </TextField>
-            <Label alignment="CENTER_RIGHT" layoutX="10.0" layoutY="180.0" prefWidth="240.0" text="Name :" textFill="WHITE" GridPane.rowIndex="2">
+            <Label alignment="CENTER_RIGHT" layoutX="10.0" layoutY="180.0" prefWidth="240.0" text="Name :" textFill="WHITE" GridPane.rowIndex="3">
                <font>
                   <Font name="Arial Bold" size="17.0" />
                </font>
@@ -83,7 +83,7 @@
                   <Insets right="10.0" />
                </padding>
             </Label>
-            <Label alignment="CENTER_RIGHT" layoutX="10.0" layoutY="301.0" prefWidth="240.0" text="Age :" textFill="WHITE" GridPane.rowIndex="3">
+            <Label alignment="CENTER_RIGHT" layoutX="10.0" layoutY="301.0" prefWidth="240.0" text="Age :" textFill="WHITE" GridPane.rowIndex="4">
                <font>
                   <Font name="Arial Bold" size="17.0" />
                </font>
@@ -91,17 +91,17 @@
                   <Insets right="10.0" />
                </padding>
             </Label>
-            <TextField fx:id="tfName" layoutX="148.0" layoutY="57.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <TextField fx:id="tfName" layoutX="148.0" layoutY="57.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
                <GridPane.margin>
                   <Insets right="20.0" />
                </GridPane.margin>
             </TextField>
-            <TextField fx:id="tfAge" layoutX="148.0" layoutY="298.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+            <TextField fx:id="tfAge" layoutX="148.0" layoutY="298.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
                <GridPane.margin>
                   <Insets right="300.0" />
                </GridPane.margin>
             </TextField>
-            <Label alignment="CENTER_RIGHT" layoutX="10.0" layoutY="421.0" prefWidth="240.0" text="Gender :" textFill="WHITE" GridPane.rowIndex="4">
+            <Label alignment="CENTER_RIGHT" layoutX="10.0" layoutY="421.0" prefWidth="240.0" text="Gender :" textFill="WHITE" GridPane.rowIndex="5">
                <font>
                   <Font name="Arial Bold" size="17.0" />
                </font>
@@ -109,8 +109,8 @@
                   <Insets right="10.0" />
                </padding>
             </Label>
-            <ComboBox fx:id="cobGender" prefWidth="150.0" promptText="Choose Gender" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-            <Label alignment="CENTER_RIGHT" layoutX="10.0" layoutY="389.0" prefWidth="240.0" text="Phone :" textFill="WHITE" GridPane.rowIndex="5">
+            <ComboBox fx:id="cobGender" prefWidth="150.0" promptText="Choose Gender" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <Label alignment="CENTER_RIGHT" layoutX="10.0" layoutY="389.0" prefWidth="240.0" text="Phone :" textFill="WHITE" GridPane.rowIndex="6">
                <font>
                   <Font name="Arial Bold" size="17.0" />
                </font>
@@ -118,12 +118,12 @@
                   <Insets right="10.0" />
                </padding>
             </Label>
-            <TextField fx:id="tfPhone" layoutX="148.0" layoutY="300.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
+            <TextField fx:id="tfPhone" layoutX="148.0" layoutY="300.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
                <GridPane.margin>
                   <Insets right="100.0" />
                </GridPane.margin>
             </TextField>
-            <Label alignment="CENTER_RIGHT" layoutX="10.0" layoutY="340.0" prefWidth="240.0" text="Role :" textFill="WHITE" GridPane.rowIndex="7">
+            <Label alignment="CENTER_RIGHT" layoutX="10.0" layoutY="340.0" prefWidth="240.0" text="Role :" textFill="WHITE" GridPane.rowIndex="8">
                <font>
                   <Font name="Arial Bold" size="17.0" />
                </font>
@@ -131,8 +131,8 @@
                   <Insets right="10.0" />
                </padding>
             </Label>
-            <ComboBox fx:id="cobRole" layoutX="148.0" layoutY="336.0" prefWidth="150.0" promptText="Choose Role" GridPane.columnIndex="1" GridPane.rowIndex="7" />
-            <Label alignment="CENTER_RIGHT" layoutX="10.0" layoutY="438.0" prefWidth="240.0" text="Salary :" textFill="WHITE" GridPane.rowIndex="8">
+            <ComboBox fx:id="cobRole" layoutX="148.0" layoutY="336.0" prefWidth="150.0" promptText="Choose Role" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+            <Label alignment="CENTER_RIGHT" layoutX="10.0" layoutY="438.0" prefWidth="240.0" text="Salary :" textFill="WHITE" GridPane.rowIndex="9">
                <font>
                   <Font name="Arial Bold" size="17.0" />
                </font>
@@ -140,12 +140,12 @@
                   <Insets right="10.0" />
                </padding>
             </Label>
-            <TextField fx:id="tfSalary" layoutX="148.0" layoutY="368.0" prefHeight="26.0" prefWidth="278.0" GridPane.columnIndex="1" GridPane.rowIndex="8">
+            <TextField fx:id="tfSalary" layoutX="148.0" layoutY="368.0" prefHeight="26.0" prefWidth="278.0" GridPane.columnIndex="1" GridPane.rowIndex="9">
                <GridPane.margin>
                   <Insets right="200.0" />
                </GridPane.margin>
             </TextField>
-            <Label alignment="CENTER_RIGHT" layoutX="10.0" layoutY="452.0" prefWidth="240.0" text="EmployDate :" textFill="WHITE" GridPane.rowIndex="9">
+            <Label alignment="CENTER_RIGHT" layoutX="10.0" layoutY="452.0" prefWidth="240.0" text="EmployDate :" textFill="WHITE" GridPane.rowIndex="10">
                <font>
                   <Font name="Arial Bold" size="17.0" />
                </font>
@@ -153,7 +153,7 @@
                   <Insets right="10.0" />
                </padding>
             </Label>
-            <DatePicker fx:id="dpEmployDate" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+            <DatePicker fx:id="dpEmployDate" GridPane.columnIndex="1" GridPane.rowIndex="10" />
             <Label alignment="CENTER_RIGHT" layoutX="10.0" layoutY="28.0" prefWidth="240.0" text="Username :" textFill="WHITE">
                <font>
                   <Font name="Arial Bold" size="17.0" />
@@ -162,7 +162,7 @@
                   <Insets right="10.0" />
                </padding>
             </Label>
-            <Label alignment="TOP_RIGHT" layoutX="10.0" layoutY="277.0" prefHeight="55.0" prefWidth="138.0" text="Address :" textFill="WHITE" GridPane.rowIndex="6">
+            <Label alignment="TOP_RIGHT" layoutX="10.0" layoutY="277.0" prefHeight="55.0" prefWidth="138.0" text="Address :" textFill="WHITE" GridPane.rowIndex="7">
                <font>
                   <Font name="Arial Bold" size="17.0" />
                </font>
@@ -170,12 +170,12 @@
                   <Insets right="10.0" />
                </padding>
             </Label>
-            <TextArea fx:id="taAddress" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
+            <TextArea fx:id="taAddress" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="7">
                <GridPane.margin>
                   <Insets right="20.0" />
                </GridPane.margin>
             </TextArea>
-            <HBox alignment="CENTER_LEFT" spacing="20.0" GridPane.columnIndex="1" GridPane.rowIndex="10">
+            <HBox alignment="CENTER_LEFT" spacing="20.0" GridPane.columnIndex="1" GridPane.rowIndex="11">
                <children>
                   <JFXRadioButton fx:id="rbWorking" prefWidth="80.0" text="Working" textFill="WHITE">
                      <unSelectedColor>
@@ -198,7 +198,7 @@
                   </JFXRadioButton>
                </children>
             </HBox>
-            <Label alignment="CENTER_RIGHT" layoutX="10.0" layoutY="479.0" prefWidth="240.0" text="Status :" textFill="WHITE" GridPane.rowIndex="10">
+            <Label alignment="CENTER_RIGHT" layoutX="10.0" layoutY="479.0" prefWidth="240.0" text="Status :" textFill="WHITE" GridPane.rowIndex="11">
                <font>
                   <Font name="Arial Bold" size="17.0" />
                </font>
@@ -206,7 +206,7 @@
                   <Insets right="10.0" />
                </padding>
             </Label>
-            <ButtonBar GridPane.columnIndex="1" GridPane.rowIndex="12">
+            <ButtonBar GridPane.columnIndex="1" GridPane.rowIndex="13">
                <buttons>
                   <Button mnemonicParsing="false" onAction="#processCancel" text="Cancel" />
                   <Button mnemonicParsing="false" onAction="#processSave" text="Save" />
@@ -215,7 +215,7 @@
                   <Insets bottom="10.0" right="20.0" />
                </padding>
             </ButtonBar>
-            <Label fx:id="lblResignDate" alignment="CENTER_RIGHT" layoutX="10.0" layoutY="440.0" prefWidth="240.0" text="ResignDate :" textFill="WHITE" GridPane.rowIndex="11">
+            <Label fx:id="lblResignDate" alignment="CENTER_RIGHT" layoutX="10.0" layoutY="440.0" prefWidth="240.0" text="ResignDate :" textFill="WHITE" GridPane.rowIndex="12">
                <font>
                   <Font name="Arial Bold" size="17.0" />
                </font>
@@ -223,7 +223,12 @@
                   <Insets right="10.0" />
                </padding>
             </Label>
-            <DatePicker fx:id="dpResignDate" layoutX="148.0" layoutY="438.0" GridPane.columnIndex="1" GridPane.rowIndex="11" />
+            <DatePicker fx:id="dpResignDate" layoutX="148.0" layoutY="438.0" GridPane.columnIndex="1" GridPane.rowIndex="12" />
+            <Label fx:id="lblTaken" prefHeight="18.0" prefWidth="241.0" text="*This username is already taken." textFill="RED" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <font>
+                  <Font name="Arial Bold" size="14.0" />
+               </font>
+            </Label>
          </children>
       </GridPane>
       <TextField fx:id="tfUserID" alignment="CENTER" editable="false" layoutX="37.0" layoutY="266.0" />

@@ -16,6 +16,7 @@ public class LoginDAO {
 	private ResultSet rs;
 	private static String loggedUserID;
 	private static String loggedUsername;
+	private static String loggedUserImage;
 
 	public boolean isCredentialsValid(String username, String password, String role) throws SQLException {
 		connection = DBconnection.getDBconnection();
@@ -23,14 +24,16 @@ public class LoginDAO {
 		String storedPassword = null;
 
 		try {
-			pStmt = connection.prepareStatement("select username,password,userID from staff where username=? && role = ?");
+			pStmt = connection.prepareStatement(
+					"select username,password,userID,imageName from staff where username=? && role = ? && status = 'working' && active = true;");
 			pStmt.setString(1, username);
 			pStmt.setString(2, role);
 			rs = pStmt.executeQuery();
 			while (rs.next()) {
 				storedPassword = rs.getString("password");
-				loggedUserID = rs.getString("username");
+				loggedUsername = rs.getString("username");
 				loggedUserID = rs.getString("userID");
+				loggedUserImage = rs.getString("imageName");
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -56,6 +59,10 @@ public class LoginDAO {
 
 	public static String getLoggedUsername() {
 		return loggedUsername;
+	}
+
+	public static String getLoggedUserImage() {
+		return loggedUserImage;
 	}
 
 	private void close() {

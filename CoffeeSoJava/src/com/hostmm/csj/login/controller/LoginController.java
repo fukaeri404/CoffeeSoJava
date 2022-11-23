@@ -22,6 +22,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -39,13 +40,13 @@ public class LoginController implements Initializable {
 	private Label lblError;
 
 	@FXML
-	private JFXPasswordField pfPassword;
+	private PasswordField pfPassword;
 
 	@FXML
 	private TextField tfPassword;
 
 	@FXML
-	private JFXTextField tfUsername;
+	private TextField tfUsername;
 
 	@FXML
 	private JFXComboBox<String> cobRole;

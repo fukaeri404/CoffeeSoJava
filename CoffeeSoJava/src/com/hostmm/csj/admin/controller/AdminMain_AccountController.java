@@ -91,6 +91,16 @@ public class AdminMain_AccountController implements Initializable {
 			Scene scene = new Scene(register);
 			stage.setScene(scene);
 			stage.show();
+			stage.showingProperty().addListener(new ChangeListener<Boolean>() {
+				@Override
+				public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue,
+						Boolean newValue) {
+					if (!newValue) {
+						refresh();
+					}
+				}
+
+			});
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -149,10 +159,18 @@ public class AdminMain_AccountController implements Initializable {
 				Stage stage = new Stage();
 				Scene scene = new Scene(register);
 				stage.setScene(scene);
-				stage.setOnCloseRequest((e) -> {
-					this.staff.setAccountHistory("");
-				});
 				stage.show();
+				stage.showingProperty().addListener(new ChangeListener<Boolean>() {
+					@Override
+					public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue,
+							Boolean newValue) {
+						if (!newValue) {
+							refresh();
+							staff.setAccountHistory("");
+						}
+					}
+
+				});
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

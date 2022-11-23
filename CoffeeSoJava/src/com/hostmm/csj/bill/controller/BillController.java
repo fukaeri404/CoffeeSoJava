@@ -2,12 +2,14 @@ package com.hostmm.csj.bill.controller;
 
 import java.net.URL;
 import java.sql.Date;
+import java.sql.Time;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
 
 import com.hostmm.csj.bill.model.Bill;
 import com.hostmm.csj.bill.model.BillDAO;
 import com.hostmm.csj.item.model.Item;
+import com.hostmm.csj.login.model.LoginDAO;
 
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -44,6 +46,9 @@ public class BillController implements Initializable {
 	private TableColumn<Bill, String> totalPrice;
 
 	@FXML
+	private TableColumn<Bill, Time> saleTime;
+
+	@FXML
 	private Label lblTotalSale;
 
 	@FXML
@@ -58,6 +63,8 @@ public class BillController implements Initializable {
 		saleMonth.setCellValueFactory(new PropertyValueFactory<>("saleMonth"));
 		saleDate.setCellValueFactory(new PropertyValueFactory<>("saleDate"));
 		saleYear.setCellValueFactory(new PropertyValueFactory<>("saleYear"));
+		saleTime.setCellValueFactory(new PropertyValueFactory<>("saleTime"));
+
 		ObservableList<Bill> billList = this.billDAO.getBillList(sql);
 		tvBill.setItems(billList);
 		lblTotalSale.setText("$ " + BillDAO.getTotalPrice());
@@ -67,13 +74,15 @@ public class BillController implements Initializable {
 	public void initialize(URL location, ResourceBundle resources) {
 		dpSaleDate.setValue(LocalDate.now());
 		showTable("select * from history where saleMonth = '" + LocalDate.now().getMonthValue() + "' && saleDate = '"
-				+ LocalDate.now().getDayOfMonth() + "' && saleYear = '" + LocalDate.now().getYear() + "';");
+				+ LocalDate.now().getDayOfMonth() + "' && saleYear = '" + LocalDate.now().getYear() + "' && cashier = '"
+				+ LoginDAO.getLoggedUsername() + "';");
 		dpSaleDate.valueProperty().addListener(new ChangeListener<LocalDate>() {
 			@Override
 			public void changed(ObservableValue<? extends LocalDate> observable, LocalDate oldValue,
 					LocalDate newValue) {
 				showTable("select * from history where saleMonth = '" + newValue.getMonthValue() + "' && saleDate = '"
-						+ newValue.getDayOfMonth() + "' && saleYear = '" + newValue.getYear() + "';");
+						+ newValue.getDayOfMonth() + "' && saleYear = '" + newValue.getYear() + "' && cashier = '"
+						+ LoginDAO.getLoggedUsername() + "';");
 			}
 		});
 	}

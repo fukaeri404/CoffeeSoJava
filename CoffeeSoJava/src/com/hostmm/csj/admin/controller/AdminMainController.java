@@ -50,17 +50,33 @@ public class AdminMainController {
 	
 	@FXML
 	void processOverview(ActionEvent event) {
-		dynamicStackPane.getChildren().clear();
+		
 		try {
-			VBox vbAccount = FXMLLoader
+			AnchorPane apOverview = FXMLLoader
 					.load(getClass().getResource("/com/hostmm/csj/admin/view/AdminMainView_Overview.fxml"));
-			dynamicStackPane.getChildren().add(vbAccount);
+			Stage stage = new Stage();
+			Scene scene = new Scene(apOverview);
+			stage.setScene(scene);
+			stage.show();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
 
+	@FXML
+	void processHistory(ActionEvent event) {
+		dynamicStackPane.getChildren().clear();
+		try {
+			VBox vbHistory = FXMLLoader
+					.load(getClass().getResource("/com/hostmm/csj/admin/view/AdminMainView_History.fxml"));
+			dynamicStackPane.getChildren().add(vbHistory);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
 	@FXML
 	void processAccount(ActionEvent event) {
 		dynamicStackPane.getChildren().clear();

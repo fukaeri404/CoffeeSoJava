@@ -26,6 +26,7 @@ import com.hostmm.csj.utility.notification.MyNotification;
 import com.hostmm.csj.utility.notification.MyNotificationType;
 import com.jfoenix.controls.JFXRadioButton;
 
+import javafx.animation.PauseTransition;
 import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -98,6 +99,9 @@ public class StaffRegisterController implements Initializable {
 
 	@FXML
 	private Label lblResignDate;
+
+	@FXML
+	private Label lblTaken;
 
 	@FXML
 	private JFXRadioButton rbResign;
@@ -233,10 +237,6 @@ public class StaffRegisterController implements Initializable {
 		}
 	}
 
-	private void clear() {
-
-	}
-
 	/**
 	 * This method handles image getting from register and upload it to file
 	 * repository.
@@ -265,7 +265,7 @@ public class StaffRegisterController implements Initializable {
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-
+		lblTaken.setVisible(false);
 		rbWorking.setUserData("working");
 		rbResign.setUserData("resign");
 		dpResignDate.setVisible(false);
@@ -303,6 +303,24 @@ public class StaffRegisterController implements Initializable {
 
 		});
 
+		ObservableList<Staff> staffList = staffDAO.getStaffList("select * from staff");
+		tfUsername.textProperty().addListener(new ChangeListener<String>() {
+			@Override
+			public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+				for (Staff staff : staffList) {
+					if (staff.getUsername().equalsIgnoreCase(newValue)) {
+						lblTaken.setVisible(true);
+						PauseTransition visiblePause = new PauseTransition(Duration.seconds(2));
+						visiblePause.setOnFinished((e) -> lblTaken.setVisible(false));
+						visiblePause.play();
+						break;
+					} else {
+						lblTaken.setVisible(false);
+					}
+				}
+			}
+		});
+
 		imgviewProfile.setOnMouseClicked((e) -> {
 			FileChooser fileChooser = new FileChooser();
 			fileChooser.getExtensionFilters().add(new ExtensionFilter("Image Files", "*.jpg"));
@@ -314,7 +332,7 @@ public class StaffRegisterController implements Initializable {
 			}
 
 		});
-		
+
 	}
 
 }

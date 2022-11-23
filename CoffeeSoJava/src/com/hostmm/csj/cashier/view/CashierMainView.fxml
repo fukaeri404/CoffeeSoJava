@@ -36,7 +36,7 @@
                               <JFXHamburger fx:id="hamburger" alignment="CENTER" fillWidth="false" layoutY="16.0" prefHeight="47.0" prefWidth="65.0" />
                            </children>
                         </AnchorPane>
-                        <Label text="Choose Category">
+                        <Label styleClass="lblChooseCategory" text="Choose Category">
                            <font>
                               <Font name="Arial Bold" size="30.0" />
                            </font>
@@ -85,12 +85,12 @@
                   </HBox>
                   <AnchorPane prefHeight="28.0">
                      <children>
-                        <Label alignment="BOTTOM_CENTER" layoutX="29.0" layoutY="-2.0" prefHeight="28.0" text="Coffee Menu">
+                        <Label alignment="BOTTOM_CENTER" layoutX="29.0" layoutY="-2.0" prefHeight="28.0" styleClass="lblChooseCategory" text="Coffee Menu">
                            <font>
                               <Font name="Bodoni MT" size="24.0" />
                            </font>
                         </Label>
-                        <Label fx:id="lblResult" alignment="BOTTOM_CENTER" layoutX="758.0" layoutY="-1.0" prefHeight="28.0" text="12 Coffees Result" textFill="#202020">
+                        <Label fx:id="lblResult" alignment="BOTTOM_CENTER" layoutX="758.0" layoutY="-1.0" prefHeight="28.0" styleClass="lblChooseCategory" text="12 Coffees Result" textFill="#202020">
                            <font>
                               <Font name="Bodoni MT" size="16.0" />
                            </font>
@@ -99,7 +99,7 @@
                   </AnchorPane>
                   <ScrollPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: transparent;" VBox.vgrow="ALWAYS">
                      <content>
-                        <FlowPane fx:id="flowPane" hgap="20.0" prefHeight="448.0" prefWidth="883.0" vgap="20.0">
+                        <FlowPane fx:id="flowPane" hgap="20.0" prefHeight="448.0" prefWidth="883.0" styleClass="flowPane" vgap="20.0">
                            <padding>
                               <Insets left="20.0" right="20.0" top="10.0" />
                            </padding>
@@ -110,17 +110,17 @@
             </VBox>
          </left>
          <center>
-            <VBox prefHeight="200.0" prefWidth="100.0" spacing="20.0" BorderPane.alignment="CENTER">
+            <VBox prefHeight="200.0" prefWidth="100.0" spacing="20.0" styleClass="vbBill" BorderPane.alignment="CENTER">
                <children>
                   <AnchorPane prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #fff; -fx-background-radius: 20;">
                      <children>
-                        <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="31.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView fx:id="imgviewCashier" fitHeight="50.0" fitWidth="50.0" layoutX="29.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true" />
                         <Label layoutX="90.0" layoutY="16.0" text="I am a cashier" textFill="#946b6b">
                            <font>
                               <Font name="Berlin Sans FB" size="14.0" />
                            </font>
                         </Label>
-                        <Label layoutX="90.0" layoutY="32.0" text="Jerry">
+                        <Label fx:id="lblUsername" layoutX="90.0" layoutY="32.0" prefHeight="20.0" prefWidth="170.0" text="Jerry">
                            <font>
                               <Font name="Arial Bold" size="16.0" />
                            </font>
@@ -130,7 +130,7 @@
                         <Insets left="10.0" right="18.0" top="10.0" />
                      </VBox.margin>
                   </AnchorPane>
-                  <Label prefWidth="300.0" style="-fx-text-fill: #704332;" text="Bills">
+                  <Label prefWidth="300.0" styleClass="lblChooseCategory" text="Bills" textFill="#716a6a">
                      <font>
                         <Font name="Arial Bold" size="18.0" />
                      </font>
@@ -138,14 +138,14 @@
                         <Insets left="20.0" />
                      </padding>
                   </Label>
-                  <AnchorPane prefHeight="340.0" prefWidth="300.0">
+                  <AnchorPane blendMode="MULTIPLY" prefHeight="340.0" prefWidth="300.0" styleClass="vbBill">
                      <children>
-                        <ScrollPane fx:id="scrollPane" prefHeight="320.0" prefWidth="309.0" style="-fx-background-color: transparent;" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                        <ScrollPane fx:id="scrollPane" prefHeight="320.0" prefWidth="309.0" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0" />
                      </children>
                   </AnchorPane>
                   <HBox>
                      <children>
-                        <Label prefHeight="18.0" prefWidth="198.0" text="Subtotal" textFill="#716a6a">
+                        <Label prefHeight="18.0" prefWidth="198.0" styleClass="lblChooseCategory" text="Subtotal" textFill="#716a6a">
                            <padding>
                               <Insets left="15.0" />
                            </padding>
@@ -153,7 +153,7 @@
                               <Font name="Arial Bold" size="14.0" />
                            </font>
                         </Label>
-                        <Label fx:id="lblSubTotal" alignment="CENTER_RIGHT" layoutX="10.0" layoutY="10.0" prefHeight="18.0" prefWidth="198.0" text="\$ 0" textFill="#716a6a">
+                        <Label fx:id="lblSubTotal" alignment="CENTER_RIGHT" layoutX="10.0" layoutY="10.0" prefHeight="18.0" prefWidth="198.0" styleClass="lblChooseCategory" text="\$ 0" textFill="#716a6a">
                            <HBox.margin>
                               <Insets />
                            </HBox.margin>
@@ -168,7 +168,7 @@
                   </HBox>
                   <HBox layoutX="10.0" layoutY="392.0">
                      <children>
-                        <Label prefHeight="18.0" prefWidth="198.0" text="Tax (10%)" textFill="#716a6a">
+                        <Label prefHeight="18.0" prefWidth="198.0" styleClass="lblChooseCategory" text="Tax (10%)" textFill="#716a6a">
                            <padding>
                               <Insets left="15.0" />
                            </padding>
@@ -176,7 +176,7 @@
                               <Font name="Arial Bold" size="14.0" />
                            </font>
                         </Label>
-                        <Label fx:id="lblTax" alignment="CENTER_RIGHT" layoutX="10.0" layoutY="10.0" prefHeight="18.0" prefWidth="198.0" text="\$ 0" textFill="#716a6a">
+                        <Label fx:id="lblTax" alignment="CENTER_RIGHT" layoutX="10.0" layoutY="10.0" prefHeight="18.0" prefWidth="198.0" styleClass="lblChooseCategory" text="\$ 0" textFill="#716a6a">
                            <HBox.margin>
                               <Insets />
                            </HBox.margin>
@@ -196,7 +196,7 @@
                   </Label>
                   <HBox layoutX="10.0" layoutY="430.0">
                      <children>
-                        <Label prefHeight="18.0" prefWidth="198.0" text="Total">
+                        <Label prefHeight="18.0" prefWidth="198.0" styleClass="lblChooseCategory" text="Total">
                            <padding>
                               <Insets left="15.0" />
                            </padding>
@@ -204,7 +204,7 @@
                               <Font name="Arial Bold" size="20.0" />
                            </font>
                         </Label>
-                        <Label fx:id="lblTotal" alignment="CENTER_RIGHT" layoutX="10.0" layoutY="10.0" prefHeight="18.0" prefWidth="198.0" text="\$ 0">
+                        <Label fx:id="lblTotal" alignment="CENTER_RIGHT" layoutX="10.0" layoutY="10.0" prefHeight="18.0" prefWidth="198.0" styleClass="lblChooseCategory" text="\$ 0">
                            <HBox.margin>
                               <Insets />
                            </HBox.margin>

@@ -2,49 +2,66 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXComboBox?>
-<?import com.jfoenix.controls.JFXPasswordField?>
-<?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="500.0" prefWidth="300.0" style="-fx-background-color: #704332;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.hostmm.csj.login.controller.LoginController">
+<AnchorPane prefHeight="500.0" prefWidth="300.0" style="-fx-background-color: #8B7E74;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.hostmm.csj.login.controller.LoginController">
    <children>
       <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="75.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../style/image/coffee-cup.png" />
          </image>
       </ImageView>
-      <Label layoutX="75.0" layoutY="200.0" text="Coffee So `JAVA`" textFill="WHITE">
+      <Label layoutX="40.0" layoutY="178.0" text="Coffee So `JAVA`" textFill="WHITE">
          <font>
-            <Font name="Arial Bold" size="18.0" />
+            <Font name="MV Boli" size="25.0" />
          </font>
       </Label>
-      <JFXTextField fx:id="tfUsername" layoutX="24.0" layoutY="247.0" prefHeight="30.0" prefWidth="250.0" promptText="enter username" style="-fx-background-color: #fff;" />
-      <StackPane alignment="CENTER_RIGHT" layoutX="24.0" layoutY="290.0" prefHeight="30.0">
+      <StackPane alignment="CENTER_RIGHT" layoutX="24.0" layoutY="290.0" prefHeight="30.0" prefWidth="250.0">
          <children>
-            <TextField fx:id="tfPassword" prefHeight="30.0" />
-            <JFXPasswordField fx:id="pfPassword" prefHeight="30.0" prefWidth="250.0" promptText="enter password" style="-fx-background-color: #fff;" />
+            <TextField fx:id="tfPassword" prefHeight="30.0" promptText="enter password" style="-fx-background-radius: 20;" />
+            <PasswordField fx:id="pfPassword" prefHeight="30.0" promptText="enter password" style="-fx-background-radius: 20;">
+               <effect>
+                  <DropShadow height="10.0" offsetX="2.0" offsetY="2.0" radius="4.5" width="10.0" />
+               </effect>
+               <font>
+                  <Font name="Arial" size="12.0" />
+               </font>
+            </PasswordField>
             <ImageView fx:id="imgviewShowPassword" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../style/image/eyes%20(2).png" />
                </image>
                <StackPane.margin>
-                  <Insets right="5.0" />
+                  <Insets right="8.0" />
                </StackPane.margin>
             </ImageView>
          </children>
       </StackPane>
-      <JFXButton fx:id="btnLogin" layoutX="111.0" layoutY="441.0" onAction="#processLogin" prefHeight="30.0" prefWidth="78.0" style="-fx-background-color: #fff;" text="Login" />
+      <JFXButton fx:id="btnLogin" buttonType="RAISED" layoutX="87.0" layoutY="446.0" onAction="#processLogin" prefHeight="38.0" prefWidth="126.0" style="-fx-background-color: #fff; -fx-background-radius: 20;" text="Login" textFill="#8c624c">
+         <font>
+            <Font name="Arial Bold" size="14.0" />
+         </font></JFXButton>
       <Label fx:id="lblError" alignment="CENTER" layoutX="45.0" layoutY="404.0" prefHeight="18.0" prefWidth="209.0" text="username or password is incorrect" textFill="#fc0000">
          <font>
             <Font name="Arial Bold" size="12.0" />
          </font></Label>
-      <JFXComboBox fx:id="cobRole" focusColor="WHITE" layoutX="86.0" layoutY="343.0" prefHeight="26.0" prefWidth="126.0" promptText="  What's your role?" style="-fx-background-color: #fff;" unFocusColor="#704332" />
+      <JFXComboBox fx:id="cobRole" focusColor="WHITE" layoutX="86.0" layoutY="343.0" prefHeight="26.0" prefWidth="126.0" promptText="  What's your role?" style="-fx-background-color: #fff;" unFocusColor="#8b7e74" />
+      <TextField fx:id="tfUsername" layoutX="24.0" layoutY="250.0" prefHeight="30.0" prefWidth="250.0" promptText="enter username" style="-fx-background-radius: 20;">
+         <effect>
+            <DropShadow height="10.0" offsetX="2.0" offsetY="2.0" radius="4.5" width="10.0" />
+         </effect>
+         <font>
+            <Font name="Arial" size="12.0" />
+         </font>
+      </TextField>
    </children>
 </AnchorPane>

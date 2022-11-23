@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="300.0" prefWidth="400.0" style="-fx-background-radius: 30; -fx-border-color: #999; -fx-border-radius: 10;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.hostmm.csj.item.card.controller.ItemCardController">
+<AnchorPane prefHeight="300.0" prefWidth="400.0" style="-fx-background-radius: 30; -fx-border-color: #999; -fx-border-radius: 30; -fx-background-color: white;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.hostmm.csj.item.card.controller.ItemCardController">
    <children>
       <ImageView fx:id="imgviewCoffee" accessibleText="imageView" fitHeight="178.0" fitWidth="137.0" layoutX="17.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true">
          <image>

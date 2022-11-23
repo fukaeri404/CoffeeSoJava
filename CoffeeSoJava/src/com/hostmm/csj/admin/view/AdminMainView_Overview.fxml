@@ -1,44 +1,123 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="700.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.hostmm.csj.admin.controller.AdminMain_OverviewController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="800.0" style="-fx-background-color: #F1D3B3;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.hostmm.csj.admin.controller.AdminMain_OverviewController">
    <children>
-      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="20.0">
+      <HBox fx:id="mobileHbox" layoutX="-650.0" layoutY="100.0" prefHeight="600.0" prefWidth="2300.0" spacing="150.0">
          <children>
-            <Label text="Choose date :">
-               <font>
-                  <Font size="15.0" />
-               </font>
-            </Label>
-            <DatePicker fx:id="dpDate" />
+            <VBox fx:id="vbMonth" prefHeight="200.0" prefWidth="600.0">
+               <children>
+                  <Label alignment="CENTER" prefWidth="600.0" text="Sale in a month of Selected Date">
+                     <font>
+                        <Font name="Arial Bold" size="20.0" />
+                     </font>
+                  </Label>
+                  <StackPane VBox.vgrow="ALWAYS">
+                     <children>
+                        <Label fx:id="lblMonthStatus" alignment="CENTER" prefHeight="40.0" style="-fx-background-color: white; -fx-background-radius: 20;" text="Currently No Sale in Selected Month" visible="false">
+                           <font>
+                              <Font name="Arial Bold" size="20.0" />
+                           </font>
+                        </Label>
+                        <PieChart fx:id="pieMonth" />
+                     </children>
+                  </StackPane>
+               </children>
+               <HBox.margin>
+                  <Insets bottom="20.0" />
+               </HBox.margin>
+            </VBox>
+            <VBox fx:id="vbDate" layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="600.0">
+               <children>
+                  <Label alignment="CENTER" prefHeight="23.0" prefWidth="600.0" text="Sale in a day of Selected Date">
+                     <font>
+                        <Font name="Arial Bold" size="20.0" />
+                     </font>
+                  </Label>
+                  <StackPane VBox.vgrow="ALWAYS">
+                     <children>
+                        <Label fx:id="lblDayStatus" alignment="CENTER" prefHeight="40.0" style="-fx-background-color: white; -fx-background-radius: 20;" text="Currently No Sale in Selected Day" visible="false">
+                           <font>
+                              <Font name="Arial Bold" size="20.0" />
+                           </font>
+                        </Label>
+                        <PieChart fx:id="pieDate" />
+                     </children>
+                  </StackPane>
+               </children>
+               <HBox.margin>
+                  <Insets bottom="20.0" />
+               </HBox.margin>
+            </VBox>
+            <VBox fx:id="vbYear" layoutX="110.0" layoutY="10.0" prefHeight="200.0" prefWidth="600.0">
+               <children>
+                  <Label alignment="CENTER" prefWidth="600.0" text="Sale in a year of Selected Date">
+                     <font>
+                        <Font name="Arial Bold" size="20.0" />
+                     </font>
+                  </Label>
+                  <StackPane VBox.vgrow="ALWAYS">
+                     <children>
+                        <Label fx:id="lblYearStatus" alignment="CENTER" prefHeight="40.0" style="-fx-background-color: white; -fx-background-radius: 20;" text="Currently No Sale in Selected Year" visible="false">
+                           <font>
+                              <Font name="Arial Bold" size="20.0" />
+                           </font>
+                        </Label>
+                        <PieChart fx:id="pieYear" />
+                     </children>
+                  </StackPane>
+               </children>
+               <HBox.margin>
+                  <Insets bottom="20.0" />
+               </HBox.margin>
+            </VBox>
          </children>
       </HBox>
-      <AnchorPane VBox.vgrow="ALWAYS">
-         <children>
-            <PieChart fx:id="pieDate" layoutX="37.0" layoutY="61.0" prefHeight="242.0" prefWidth="338.0" />
-            <Label layoutX="37.0" layoutY="28.0" text="Selected Date Sale">
-               <font>
-                  <Font name="Arial Bold" size="15.0" />
-               </font></Label>
-            <PieChart fx:id="pieMonth" layoutX="408.0" layoutY="61.0" prefHeight="250.0" prefWidth="367.0" />
-            <Label layoutX="408.0" layoutY="28.0" text="Selected Date's Month Sale">
-               <font>
-                  <Font name="Arial Bold" size="15.0" />
-               </font></Label>
-            <PieChart fx:id="pieYear" layoutX="240.0" layoutY="334.0" prefHeight="250.0" prefWidth="501.0" />
-            <Label layoutX="37.0" layoutY="450.0" text="Selected Date's Year Sale">
-               <font>
-                  <Font name="Arial Bold" size="15.0" />
-               </font>
-            </Label>
-         </children>
-      </AnchorPane>
+      <Label layoutX="242.0" layoutY="31.0" prefHeight="35.0" prefWidth="90.0" text="Choose Value :">
+         <font>
+            <Font name="Arial Bold" size="12.0" />
+         </font>
+      </Label>
+      <DatePicker fx:id="dpDate" layoutX="333.0" layoutY="36.0" />
+      <Button fx:id="btnRight" layoutX="720.0" layoutY="400.0" mnemonicParsing="false" onAction="#processRight" prefWidth="42.0" style="-fx-background-color: transparent;">
+         <graphic>
+            <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../style/image/left-arrow%20(1).png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button fx:id="btnLeft" layoutX="20.0" layoutY="400.0" mnemonicParsing="false" onAction="#processLeft" prefWidth="42.0" style="-fx-background-color: transparent;">
+         <graphic>
+            <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../style/image/left-arrow.png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="DEFAULT" />
+               </cursor>
+            </ImageView>
+         </graphic>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
    </children>
-</VBox>
+</AnchorPane>
