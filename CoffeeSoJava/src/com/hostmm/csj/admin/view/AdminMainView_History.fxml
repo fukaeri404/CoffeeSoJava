@@ -2,6 +2,7 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -12,25 +13,29 @@
    <children>
       <HBox alignment="CENTER_LEFT" prefHeight="70.0" prefWidth="200.0" spacing="15.0" style="-fx-border-width: 0 0 1 0; -fx-border-color: white;">
          <children>
-            <JFXButton onAction="#processAdd" prefHeight="50.0" prefWidth="100.0" styleClass="admMainAccButton" text="Add">
+            <JFXButton onAction="#processAdd" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: white;" styleClass="admMainAccButton" text="Add">
                <HBox.margin>
                   <Insets left="20.0" />
                </HBox.margin>
             </JFXButton>
-            <JFXButton layoutX="360.0" layoutY="32.0" onAction="#processEdit" prefHeight="50.0" prefWidth="100.0" styleClass="admMainAccButton" text="Edit" />
-            <JFXButton layoutX="410.0" layoutY="32.0" onAction="#processDelete" prefHeight="50.0" prefWidth="100.0" styleClass="admMainAccButton" text="Delete" />
-            <JFXButton layoutX="460.0" layoutY="32.0" onAction="#processRefresh" prefHeight="50.0" prefWidth="100.0" styleClass="admMainAccButton" text="Refresh" />
-            <JFXComboBox fx:id="cobMonth" focusColor="WHITE" prefWidth="120.0" promptText="Choose Month">
+            <JFXButton layoutX="360.0" layoutY="32.0" onAction="#processEdit" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: white;" styleClass="admMainAccButton" text="Edit" />
+            <JFXButton layoutX="410.0" layoutY="32.0" onAction="#processDelete" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: white;" styleClass="admMainAccButton" text="Delete" />
+            <JFXButton layoutX="460.0" layoutY="32.0" onAction="#processRefresh" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: white;" styleClass="admMainAccButton" text="Refresh" />
+            <JFXTextField fx:id="tfSearch" promptText="enter cashier name" />
+            <JFXComboBox fx:id="cobMonth" focusColor="WHITE" prefHeight="26.0" prefWidth="118.0" promptText="Month">
                <HBox.margin>
                   <Insets left="20.0" />
                </HBox.margin>
             </JFXComboBox>
-            <JFXComboBox fx:id="cobDate" focusColor="WHITE" layoutX="676.0" layoutY="32.0" prefWidth="120.0" promptText="Choose Date" />
-            <JFXComboBox fx:id="cobYear" focusColor="WHITE" layoutX="541.0" layoutY="32.0" prefWidth="120.0" promptText="Choose Year">
-               <HBox.margin>
-                  <Insets right="20.0" />
-               </HBox.margin></JFXComboBox>
+            <JFXComboBox fx:id="cobDate" focusColor="WHITE" layoutX="581.0" layoutY="32.0" prefHeight="26.0" prefWidth="118.0" promptText="Date" />
+            <JFXComboBox fx:id="cobYear" focusColor="WHITE" layoutX="588.0" layoutY="32.0" prefHeight="26.0" prefWidth="118.0" promptText="Year" />
          </children>
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
+         <padding>
+            <Insets right="20.0" />
+         </padding>
       </HBox>
       <TableView fx:id="tvHistory" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
         <columns>
