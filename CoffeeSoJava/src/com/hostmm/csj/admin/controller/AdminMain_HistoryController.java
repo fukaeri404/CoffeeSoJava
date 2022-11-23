@@ -28,6 +28,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.Alert.AlertType;
@@ -75,11 +76,15 @@ public class AdminMain_HistoryController implements Initializable {
 	private JFXTextField tfSearch;
 
 	@FXML
+	private Label lblTotalPrice;
+
+	@FXML
 	private TableView<Bill> tvHistory;
 
 	private BillDAO billDAO = new BillDAO();
 	private Bill bill = Bill.getBillinstance();
 	private MyNotification myNoti = new MyNotification();
+	private double totalP;
 
 	@FXML
 	void processAdd(ActionEvent event) {
@@ -186,6 +191,7 @@ public class AdminMain_HistoryController implements Initializable {
 	}
 
 	private void showTable(String sql) {
+		totalP = 0;
 		name.setCellValueFactory(new PropertyValueFactory<>("name"));
 		quantity.setCellValueFactory(new PropertyValueFactory<>("quantity"));
 		totalPrice.setCellValueFactory(new PropertyValueFactory<>("totalPrice"));
@@ -195,6 +201,12 @@ public class AdminMain_HistoryController implements Initializable {
 		saleTime.setCellValueFactory(new PropertyValueFactory<>("saleTime"));
 		cashier.setCellValueFactory(new PropertyValueFactory<>("cashier"));
 		ObservableList<Bill> staffList = this.billDAO.getBillList(sql);
+
+		for (Bill bill : staffList) {
+			totalP += bill.getTotalPrice();
+		}
+
+		lblTotalPrice.setText("$ " + totalP);
 		tvHistory.setItems(staffList);
 //		tfSearch.textProperty().addListener(
 //				(observable, oldValue, newValue) -> tvUser.setItems(filterList(userList, newValue.toLowerCase())));
@@ -524,8 +536,8 @@ public class AdminMain_HistoryController implements Initializable {
 					if ((cobMonth.getValue() != null && !cobMonth.getValue().isBlank())
 							&& (cobDate.getValue() == null || cobDate.getValue().isBlank())
 							&& (cobYear.getValue() != null && !cobYear.getValue().isBlank())) {
-						showTable("select * from history where saleMonth = '" + cobMonth.getValue() + "' && saleYear = '"
-								+ cobYear.getValue() + "';");
+						showTable("select * from history where saleMonth = '" + cobMonth.getValue()
+								+ "' && saleYear = '" + cobYear.getValue() + "';");
 					}
 
 					if ((cobMonth.getValue() == null || cobMonth.getValue().isBlank())
@@ -539,8 +551,9 @@ public class AdminMain_HistoryController implements Initializable {
 					if ((cobMonth.getValue() != null && !cobMonth.getValue().isBlank())
 							&& (cobDate.getValue() != null && !cobDate.getValue().isBlank())
 							&& (cobYear.getValue() != null && !cobYear.getValue().isBlank())) {
-						showTable("select * from history where saleMonth = '" + cobMonth.getValue() + "' && saleDate = '"
-								+ cobDate.getValue() + "' && saleYear ='" + cobYear.getValue() + "';");
+						showTable(
+								"select * from history where saleMonth = '" + cobMonth.getValue() + "' && saleDate = '"
+										+ cobDate.getValue() + "' && saleYear ='" + cobYear.getValue() + "';");
 					}
 				}
 
